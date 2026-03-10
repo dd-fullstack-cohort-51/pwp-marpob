@@ -1,6 +1,8 @@
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
+import { useLanguage } from "../context/LanguageContext.tsx";
 
 export function Navigation() {
+    const { lang, toggleLang } = useLanguage();
     return (
         <Navbar fluid rounded className={'border-6 border-gray-200 bg-gray-100'}>
             <NavbarBrand href="/">
@@ -10,7 +12,9 @@ export function Navigation() {
             <NavbarCollapse>
                 <NavbarLink href="/tennis">Tennis</NavbarLink>
                 <NavbarLink href="web-development">Web Developer</NavbarLink>
-                <NavbarLink href="/cz">Česky</NavbarLink>
+                <NavbarLink as="button" onClick={toggleLang}>
+                    {lang === "en" ? "Česky" : "English"}
+                </NavbarLink>
             </NavbarCollapse>
         </Navbar>
     );

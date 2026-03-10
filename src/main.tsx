@@ -8,12 +8,14 @@ import {Navigation} from "./components/navigation.tsx";
 import Tennis from "./routes/tennis/tennis.tsx";
 import WebDevelopment from "./routes/webdevelop/web-development.tsx";
 import App from "./routes/test/languageswitch.tsx";
+import {LanguageProvider} from "./context/LanguageContext.tsx";
 // import About from "./routes/about/about.tsx";
 // import {FooterBlack} from "./components/footer.tsx";
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <LanguageProvider>
     <BrowserRouter>
         <Navigation/>
       <Routes>
@@ -27,5 +29,6 @@ createRoot(document.getElementById('root')!).render(
       </Routes>
         {/*<FooterBlack/>*/}
     </BrowserRouter>
+    </LanguageProvider>
   </StrictMode>,
 )
